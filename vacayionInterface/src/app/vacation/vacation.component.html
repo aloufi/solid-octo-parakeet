@@ -1,0 +1,80 @@
+<mat-card>
+<div class="example-container">
+
+  <mat-form-field>
+    <input matInput placeholder="Enter your employee number" [formControl]="employeeNumber" required>
+    <mat-error *ngIf="employeeNumber.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div>
+
+  <mat-card-header>
+    <button mat-flat-button color="primary" (click)="getEmployee(this.employeeNumber)">Click</button>
+    <mat-card-title *ngIf="employee"> {{ 'Hi ' + this.employee.firstName + ' ' + this.employee.lastName + ', You are in  ' + this.employee.departmentEmployees[0].department.departmentName + ' department' }}</mat-card-title>
+    <mat-card-subtitle *ngIf="isManager">You Are a Manager</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-list>
+    <mat-list-item>
+
+    <mat-card-header *ngIf="employee">
+      <mat-card-title *ngIf="!isManager">
+        Send a New Vacation Request
+        <button mat-flat-button color="primary" (click)="sendVacationRequest()">Click</button>
+      </mat-card-title>
+    </mat-card-header>
+    </mat-list-item>
+  </mat-list>
+
+  <!--<mat-list *ngFor="let vacation of vacation">
+    <mat-list-item>{{ vacation.vacationNumber + '- The status is ' + vacation.status }}</mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+  -->
+  <mat-table *ngIf="employee" [dataSource]="vacation" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="vacationNumber">
+      <mat-header-cell *matHeaderCellDef> Vacation ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.vacationNumber}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="employeeNumber">
+      <mat-header-cell *matHeaderCellDef> Vacation ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.employeeNumber}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="requestDate">
+      <mat-header-cell *matHeaderCellDef> Request Date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.requestDate | date: 'full'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="responseDate">
+      <mat-header-cell *matHeaderCellDef> Response Date  </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.responseDate | date: 'shortDate' }} </mat-cell>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> Action  </mat-header-cell>
+      <mat-cell *matCellDef="let element" >
+        <mat-form-field *ngIf="this.isManager">
+          <mat-select placeholder="Select" (selectionChange)="responseToVacationRequest($event, element.vacationNumber)">
+            <mat-option [value]="option" *ngFor="let option of status">{{ option }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+
+</mat-card>

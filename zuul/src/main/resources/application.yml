@@ -1,0 +1,42 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${registry.host:localhost}:${registry.port:8761}/eureka/
+    healthcheck:
+      enabled: true
+  instance:
+    hostname: gateway-service
+    appname: gateway-service
+
+spring:
+  application:
+    name: gateway-service
+  profiles:
+    active:
+      default
+  cloud:
+    config:
+      name: shared
+      enabled: true
+      uri: http://${config.host:localhost}:${config.port:8888}
+
+server:
+  port: 8010
+zuul:
+  prefix: /api
+  routes:
+    vacation-service:
+      path: /vacation-service/**
+      serviceId: vacation-service
+    manager-service:
+      path: /manager-service/**
+      serviceId: manager-service
+  sensitive-headers:
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000

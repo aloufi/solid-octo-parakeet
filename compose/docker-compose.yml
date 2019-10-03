@@ -1,0 +1,54 @@
+version: '3'
+services:
+  eureka-server:
+    build: ../eureka
+    image: eureka-server
+    container_name: eureka-server
+    networks:
+      - app-network
+    ports:
+    - "8761:8761"
+    
+  config-server:
+    build: ../config-service
+    image: config-server
+    container_name: config-service
+    networks:
+      - app-network
+    ports:
+      - "8888:8888"
+    environment:
+      - REGISTRY_HOST=eureka-server 
+      
+  gateway-service:
+    build: ../zuul
+    image: gateway-service
+    container_name: gateway-service
+    networks:
+      - app-network
+    ports:
+      - "8010:8010"
+    environment:
+      - REGISTRY_HOST=eureka-server
+      - CONFIG_HOST=config-server
+
+  vacation-service:
+    build: ../vacation-service
+    image: vacation-service
+    container_name: vacation-service
+    networks:
+      - app-network
+    environment:
+      - REGISTRY_HOST=eureka-server
+      - CONFIG_HOST=config-server
+    ports:
+    - "8020:8020"
+    restart:
+      unless-stopped
+
+networks:
+  app-network:
+
+# docker build -t eureka-server .
+# docker build -t config-server .
+# docker build -t gateway-service .

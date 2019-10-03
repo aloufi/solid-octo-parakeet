@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  vacation-service:
+    build: ../
+    image: vacation-service
+    container_name: vacation-service
+    ports:
+    - "8020:8020"
+    environment:
+    - REGISTRY_HOST=eureka-server
+    - CONFIG_HOST=config-server
+    restart:
+      unless-stopped
