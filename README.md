@@ -41,7 +41,7 @@ cd compose
 docker-compose build
 docker-compose up
 
-and then wait for a few minutes check if http://localhost:8761/this work.
+and then wait for a few minutes check if http://localhost:8761/ make sure 3 services up and running.
 
 Front end url: http://localhost:4200/VacationRequest
 
