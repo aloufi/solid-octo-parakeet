@@ -2,26 +2,35 @@ To build project
 
 
 
+eureka server
+```
 cd eureka
 gradlew build
+```
 
 
+config server (importent)
 ```
 cd config-service
 gradlew build
 ```
 
+
+zuul
 ```
 cd zuul
 gradlew build
 ```
 
+
+main applaction
 ```
 cd vacation-service
 gradlew build
 ```
 
 
+service UI
 ```
 cd vacayionInterface
 npm install
