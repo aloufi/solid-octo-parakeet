@@ -28,7 +28,7 @@ zuul:
     vacation-service:
       path: /vacation-service/**
       serviceId: vacation-service
-      url: http://localhost:8082/
+      url: http://vacation-service:8020/
   sensitive-headers:
 
 hystrix:
