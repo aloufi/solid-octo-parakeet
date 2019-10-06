@@ -1,7 +1,7 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://${registry.host:localhost}:${registry.port:8761}/eureka/
+      defaultZone: http://eureka-server:8761/eureka/
     healthcheck:
       enabled: true
   instance:
@@ -18,7 +18,7 @@ spring:
     config:
       name: shared
       enabled: true
-      uri: http://${config.host:localhost}:${config.port:8888}
+      uri: http://config-server:8888
 
 server:
   port: 8010
@@ -28,9 +28,7 @@ zuul:
     vacation-service:
       path: /vacation-service/**
       serviceId: vacation-service
-    manager-service:
-      path: /manager-service/**
-      serviceId: manager-service
+      url: http://localhost:8082/
   sensitive-headers:
 
 hystrix:

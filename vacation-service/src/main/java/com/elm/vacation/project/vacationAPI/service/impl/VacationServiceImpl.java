@@ -24,7 +24,6 @@ import java.util.List;
 @Transactional
 public class VacationServiceImpl implements VacationService {
 
-    //private static final Logger log = LoggerFactory.getLogger(VacationService.class);
     private static final Logger log = LoggerFactory.getLogger(VacationServiceImpl.class);
 
     private final RabbitTemplate rabbitTemplate;
@@ -62,7 +61,9 @@ public class VacationServiceImpl implements VacationService {
 
     @Override
     public void sendMassageToRabbitMq(String exchange, String routingKey, Vacation updateVacationRequest) {
+        log.info("sendMassageToRabbitMq : " + "%s request to %s" + exchange + " " + routingKey);
         try {
+            System.out.println("convertAndSend"+ exchange + " " + routingKey);
             rabbitTemplate.convertAndSend(exchange, routingKey, updateVacationRequest);
             rabbitTemplate.convertAndSend(MessageDeliveryMode.PERSISTENT);
             new ResponseEntity<String>(ApplicationConstant.IN_QUEUE, HttpStatus.OK);
