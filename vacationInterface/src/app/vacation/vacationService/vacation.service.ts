@@ -11,7 +11,7 @@ import {VacationResponse} from '../model/vacationresponse';
 })
 export class VacationService {
 
-  apiURL = 'http://localhost:8020';
+  apiURL = 'http://localhost:8010/api/vacation-service';
 
   constructor(private httpClient: HttpClient) {}
 
