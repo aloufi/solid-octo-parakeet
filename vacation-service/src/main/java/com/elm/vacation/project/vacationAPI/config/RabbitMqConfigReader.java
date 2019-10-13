@@ -4,27 +4,12 @@ package com.elm.vacation.project.vacationAPI.config;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+
 
 @Configuration
 @EnableRabbit
 public class RabbitMqConfigReader {
 
-    /*
-    *
-    @Value("${mangerServiceName}")
-	private String serviceName;
-	*
-	*
-	* =test
-=localhost
-=5672
-=guest
-=guest
-
-
-
-	* */
     @Value("${employeeQueue}")
     private String employeeRequestQueueName;
     @Value("${employeeExchange}")
@@ -137,17 +122,4 @@ public class RabbitMqConfigReader {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    /*@Value("${spring.rabbitmq.virtual-host}")
-    private String vhost;
-    @Value("${spring.rabbitmq.host}")
-    private String host;
-    @Value("${spring.rabbitmq.port-number}")
-    private Integer portNumber;
-    @Value("${spring.rabbitmq.username}")
-    private String userName;
-    @Value("${spring.rabbitmq.password}")
-    private String password;
-    */
-
 }

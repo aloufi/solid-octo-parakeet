@@ -45,67 +45,69 @@ public class VacationApiApplication extends SpringBootServletInitializer impleme
 		return application.sources(VacationApiApplication.class);
 	}
 
-	/* This bean is to read the properties file configs */
 	@Bean
 	public RabbitMqConfigReader applicationConfig() {
 		return new RabbitMqConfigReader();
 	}
-	/* Creating a bean for the Message queue Exchange */
+
 	@Bean
 	public DirectExchange getManagerExchange() {
 		return new DirectExchange(getApplicationConfig().getManagerRequestExchangeName());
 	}
-	/* Creating a bean for the Message queue */
+
 	@Bean
 	public Queue getManagerQueue() {
 		return new Queue(getApplicationConfig().getManagerRequestQueueName(),true,false,false);
 	}
-	/* Binding between Exchange and Queue using routing key */
+
 	@Bean
 	public Binding declareBindingManager() {
 		return BindingBuilder.bind(getManagerQueue()).to(getManagerExchange()).with(getApplicationConfig().getManagerRequestRoutingKeyName());
 	}
-	/* Creating a bean for the Message queue Exchange */
+
 	@Bean
 	public DirectExchange getEmployeeExchange() {
 		return new DirectExchange(getApplicationConfig().getEmployeeRequestExchangeName());
 	}
-	/* Creating a bean for the Message queue */
+
 	@Bean
 	public Queue getEmployeeQueue() {
 		return new Queue(getApplicationConfig().getEmployeeRequestQueueName(),true,false,false);
 	}
-	/* Binding between Exchange and Queue using routing key */
+
 	@Bean
 	public Binding declareBindingEmployee() {
 		return BindingBuilder.bind(getEmployeeQueue()).to(getEmployeeExchange()).with(getApplicationConfig().getEmployeeRequestRoutingKeyName());
 	}
-	/* Bean for rabbitTemplate */
+
 	@Bean
 	public RabbitTemplate rabbitTemplate(final ConnectionFactory connectionFactory) {
 		final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
 		rabbitTemplate.setMessageConverter(producerJackson2MessageConverter());
 		return rabbitTemplate;
 	}
+
 	@Bean
 	public Jackson2JsonMessageConverter producerJackson2MessageConverter() {
 		return new Jackson2JsonMessageConverter();
 	}
+
 	@Bean
 	public MappingJackson2MessageConverter consumerJackson2MessageConverter() {
 		return new MappingJackson2MessageConverter();
 	}
+
 	@Bean
 	public DefaultMessageHandlerMethodFactory messageHandlerMethodFactory() {
 		DefaultMessageHandlerMethodFactory factory = new DefaultMessageHandlerMethodFactory();
 		factory.setMessageConverter(consumerJackson2MessageConverter());
 		return factory;
 	}
+
 	@Override
 	public void configureRabbitListeners(final RabbitListenerEndpointRegistrar registrar) {
 		registrar.setMessageHandlerMethodFactory(messageHandlerMethodFactory());
 	}
-
 
 	@Bean
 	public com.rabbitmq.client.ConnectionFactory clientConnectionFactory() {

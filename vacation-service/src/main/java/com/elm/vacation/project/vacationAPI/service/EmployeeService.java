@@ -9,5 +9,6 @@ public interface EmployeeService {
     EmployeeDomain findEmployeeByEmployeeNumber(int id);
     DepartmentManager getByEmployeeNumber(int id);
     DepartmentManager findTopByDepartmentNumber(String dept_no);
+    //EmployeeDomain getEmployeeByEmployeeNumber(int id);
 
 }

@@ -3,6 +3,8 @@ package com.elm.vacation.project.vacationAPI.model;
 import com.elm.vacation.project.vacationAPI.domain.DepartmentManager;
 import com.elm.vacation.project.vacationAPI.domain.Employee;
 
+import java.util.Objects;
+
 public class EmployeeDomain {
 
     private Employee employee;
@@ -25,5 +27,19 @@ public class EmployeeDomain {
 
     public void setDepartmentManager(DepartmentManager departmentManager) {
         this.departmentManager = departmentManager;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof EmployeeDomain)) return false;
+        EmployeeDomain that = (EmployeeDomain) o;
+        return Objects.equals(employee, that.employee) &&
+                Objects.equals(departmentManager, that.departmentManager);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(employee, departmentManager);
     }
 }

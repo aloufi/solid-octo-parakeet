@@ -1,14 +1,10 @@
 package com.elm.vacation.project.vacationAPI.route;
 
 
-import com.elm.vacation.project.vacationAPI.Controller.MainController;
 import com.elm.vacation.project.vacationAPI.config.RabbitMqConfigReader;
 import com.elm.vacation.project.vacationAPI.domain.Vacation;
 import com.elm.vacation.project.vacationAPI.service.VacationService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rabbitmq.client.ConnectionFactory;
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -55,22 +51,19 @@ public class RequestRouter extends RouteBuilder {
         String managerRoutingKey = getApplicationConfig().getManagerRequestRoutingKeyName();
 
         String employeeRequestQueue   = "rabbitmq:"+employeeExchange+"?queue="+employeeQueue+"&routingKey="+employeeRoutingKey+"&autoDelete=false";
-
         String managerRequestQueue   = "rabbitmq:"+managerExchange+"?queue="+managerQueue+"&routingKey="+managerRoutingKey+"&autoDelete=false";
 
+        camelProcessor(employeeRequestQueue);
 
-        log.info("configure: " + "%s request to %s" + employeeExchange + " " + employeeQueue + " "+ employeeRoutingKey);
-        camelProcesser(employeeRequestQueue);
-
-        camelProcesser(managerRequestQueue);
+        camelProcessor(managerRequestQueue);
     }
 
-    private void camelProcesser(String requestQueue) {
+    private void camelProcessor(String requestQueue) {
         from(requestQueue).process(exchange -> {
-            log.info("camelProcesser: " + "%s request to %s" + requestQueue);
             String payload = exchange.getIn().getBody(String.class);
             try {
                 Vacation vacationRequest = objectMapper.readValue(payload, Vacation.class);
+                log.info("payload: " + payload);
                 vacationService.save(vacationRequest);
             } catch (IOException e) {
                 e.printStackTrace();

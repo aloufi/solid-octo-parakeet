@@ -11,6 +11,8 @@ import com.elm.vacation.project.vacationAPI.service.EmployeeService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Set;
+
 
 @Service
 @Transactional
@@ -30,15 +32,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeDomain findEmployeeByEmployeeNumber(int id) {
         EmployeeDomain employeeDomain = new EmployeeDomain();
-        Employee employee = employeeRepository.findEmployeeByEmployeeNumber(id);
+        Employee employee = employeeRepository.getEmployeeByEmployeeNumber(id);
+        Set<DepartmentEmployee> departmentEmployee = employee.getDepartmentEmployees();
         employeeDomain.setEmployee(employee);
-
-        for (DepartmentEmployee departmentEmployee : employee.getDepartmentEmployees()) {
-            Department department = departmentEmployee.getDepartment();
-            DepartmentManager departmentManager = getByEmployeeNumber(employee.getEmployeeNumber());
-            if (departmentManager == null) {
-                employeeDomain.setDepartmentManager(findTopByDepartmentNumber(department.getDepartmentNumber()));
-            }
+        DepartmentManager departmentManager = getByEmployeeNumber(employee.getEmployeeNumber());
+        if (departmentManager == null) {
+            employeeDomain.setDepartmentManager(findTopByDepartmentNumber(departmentEmployee.iterator().next().getDepartment().getDepartmentNumber()));
         }
         return employeeDomain;
     }
@@ -52,4 +51,34 @@ public class EmployeeServiceImpl implements EmployeeService {
     public DepartmentManager findTopByDepartmentNumber(String dept_no) {
         return managerRepository.findTopByDepartmentNumber(dept_no);
     }
+
+    /*@Override
+    public EmployeeDomain getEmployeeByEmployeeNumber(int id) {
+        EmployeeDomain employeeDomain = new EmployeeDomain();
+        Employee employee = employeeRepository.getEmployeeByEmployeeNumber(id);
+        Set<DepartmentEmployee> departmentEmployee = employee.getDepartmentEmployees();
+        employeeDomain.setEmployee(employee);
+        DepartmentManager departmentManager = getByEmployeeNumber(employee.getEmployeeNumber());
+        if (departmentManager == null) {
+            employeeDomain.setDepartmentManager(findTopByDepartmentNumber(departmentEmployee.iterator().next().getDepartment().getDepartmentNumber()));
+        }
+        return employeeDomain;
+    }*/
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
