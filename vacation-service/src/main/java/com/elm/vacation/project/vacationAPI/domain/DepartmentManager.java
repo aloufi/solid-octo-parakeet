@@ -72,14 +72,4 @@ public class DepartmentManager implements Serializable {
     public int hashCode() {
         return Objects.hash(employeeNumber, departmentNumber, fromDate, toDate);
     }
-
-    @Override
-    public String toString() {
-        return "DepartmentManager{" +
-                "employeeNumber=" + employeeNumber +
-                ", departmentNumber='" + departmentNumber + '\'' +
-                ", fromDate=" + fromDate +
-                ", toDate=" + toDate +
-                '}';
-    }
 }

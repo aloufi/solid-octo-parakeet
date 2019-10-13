@@ -2,10 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a4fc65f-ebfa-425c-a613-54baae1ee8e8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/vacationInterface/proxy.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/elmproject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/elmproject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vacationInterface/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/vacationInterface/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vacationInterface/src/app/vacation/vacationService/vacation.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vacationInterface/src/app/vacation/vacationService/vacation.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/compose/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/compose/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/compose/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/VacationApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/VacationApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/config/RabbitMqConfigReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/config/RabbitMqConfigReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/domain/DepartmentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/domain/DepartmentManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/model/EmployeeDomain.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/model/EmployeeDomain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/repository/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/repository/EmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/repository/VacationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/repository/VacationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/route/RequestRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/route/RequestRouter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/service/VacationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/service/VacationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/service/impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/service/impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/service/impl/VacationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/src/main/java/com/elm/vacation/project/vacationAPI/service/impl/VacationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-service/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-service/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacationInterface/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/vacationInterface/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacationInterface/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vacationInterface/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacationInterface/proxy.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/vacationInterface/proxy.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacationInterface/src/app.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacationInterface/src/app/material.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vacationInterface/src/app/material.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacationInterface/src/app/vacation/vacation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/vacationInterface/src/app/vacation/vacation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/zuul/Dockerfile" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,78 +44,26 @@
     </execution>
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/compose/docker-compose.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="70" selection-start-line="70" selection-end-line="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <option name="isMigrated" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/vacationInterface/Dockerfile" />
-        <option value="$PROJECT_DIR$/vacation-service/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/compose/docker-compose.yml" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1176" />
-  </component>
+  <component name="ProjectId" id="1S8gYAyUrYVnOKPuP7WlGJY6bce" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="solid-octo-parakeet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="solid-octo-parakeet" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="solid-octo-parakeet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="solid-octo-parakeet" type="462c0819:PsiDirectoryNode" />
-              <item name="vacationInterface" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/vacationInterface" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="database.main" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -110,7 +83,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.Angular CLI Server">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -124,6 +97,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="E2E Tests (vacayionInterface-e2e)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/vacationInterface/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -132,6 +116,16 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/vacationInterface/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -147,73 +141,24 @@
       <workItem from="1570022005305" duration="1926000" />
       <workItem from="1570087572975" duration="5594000" />
       <workItem from="1570346315031" duration="9845000" />
+      <workItem from="1570692932695" duration="3813000" />
+      <workItem from="1570950684083" duration="2656000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17365000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1663113" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.19079578" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Google Cloud Storage" order="4" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info anchor="right" id="Maven" order="8" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml" />
-    <entry file="file://$PROJECT_DIR$/vacationInterface/nginx.conf">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vacationInterface/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vacation-service/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="42" column="41" lean-forward="true" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compose/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
-        </state>
-      </provider>
-    </entry>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="masterDetails">
     <states>

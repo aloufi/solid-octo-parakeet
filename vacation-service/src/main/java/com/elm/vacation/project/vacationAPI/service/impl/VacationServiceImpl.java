@@ -1,7 +1,6 @@
 package com.elm.vacation.project.vacationAPI.service.impl;
 
 import com.elm.vacation.project.vacationAPI.config.ApplicationConstant;
-import com.elm.vacation.project.vacationAPI.config.RabbitMqConfigReader;
 import com.elm.vacation.project.vacationAPI.domain.Vacation;
 import com.elm.vacation.project.vacationAPI.model.Status;
 import com.elm.vacation.project.vacationAPI.repository.VacationRepository;
@@ -10,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.MessageDeliveryMode;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -60,15 +58,22 @@ public class VacationServiceImpl implements VacationService {
     }
 
     @Override
-    public void sendMassageToRabbitMq(String exchange, String routingKey, Vacation updateVacationRequest) {
-        log.info("sendMassageToRabbitMq : " + "%s request to %s" + exchange + " " + routingKey);
+    public ResponseEntity sendMassageToRabbitMq(String exchange, String routingKey, Vacation vacationRequest) {
         try {
-            System.out.println("convertAndSend"+ exchange + " " + routingKey);
-            rabbitTemplate.convertAndSend(exchange, routingKey, updateVacationRequest);
+            if (vacationRequest.getVacationNumber() == null) {
+                vacationRequest.setStatus(Status.PENDING);
+                vacationRequest.setRequestDate(new Date());
+            } else {
+                Vacation updateVacationRequest = vacationRepository.getOne(vacationRequest.getVacationNumber());
+                updateVacationRequest.setStatus(vacationRequest.getStatus());
+                updateVacationRequest.setResponseDate(new Date());
+                vacationRequest = updateVacationRequest;
+            }
+            rabbitTemplate.convertAndSend(exchange, routingKey, vacationRequest);
             rabbitTemplate.convertAndSend(MessageDeliveryMode.PERSISTENT);
-            new ResponseEntity<String>(ApplicationConstant.IN_QUEUE, HttpStatus.OK);
+            return new ResponseEntity<>(ApplicationConstant.IN_QUEUE, HttpStatus.OK);
         } catch (Exception ex) {
-            new ResponseEntity<String>(ApplicationConstant.MESSAGE_QUEUE_SEND_ERROR,
+            return new ResponseEntity<>(ApplicationConstant.MESSAGE_QUEUE_SEND_ERROR,
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
 

@@ -50,20 +50,14 @@ public class MainController {
 
     @RequestMapping(method= RequestMethod.GET, value = "/getEmployee/{id}", produces = "application/json")
     public EmployeeDomain getEmpByID(@PathVariable(value = "id") int id) {
-        log.info("getEmpByID: " + "%s request to %s" + employeeService.findEmployeeByEmployeeNumber(id));
         return employeeService.findEmployeeByEmployeeNumber(id);
     }
 
 
     @PostMapping(value = "/createNewVacationRequest", produces = "application/json")
     public void vacationRequest(@RequestBody Vacation vacation) {
-        log.info("vacationRequest: " + "%s request to %s" + vacation);
         String exchange = getApplicationConfig().getEmployeeRequestExchangeName();
         String routingKey = getApplicationConfig().getEmployeeRequestRoutingKeyName();
-
-        vacation.setStatus(Status.PENDING);
-        vacation.setRequestDate(new Date());
-        log.info("vacationRequest: " + "%s request to %s" + exchange + " " + routingKey);
         vacationService.sendMassageToRabbitMq(exchange, routingKey, vacation);
     }
 
@@ -77,11 +71,7 @@ public class MainController {
     public void vacationResponse(@RequestBody Vacation vacation) {
         String exchange = getApplicationConfig().getManagerRequestExchangeName();
         String routingKey = getApplicationConfig().getManagerRequestRoutingKeyName();
-        Vacation updateVacationRequest = vacationService.getOne(vacation.getVacationNumber());
-        updateVacationRequest.setStatus(vacation.getStatus());
-        updateVacationRequest.setResponseDate(new Date());
-        log.info("vacationResponse: " + "%s request to %s" + exchange + " " + routingKey);
-        vacationService.sendMassageToRabbitMq(exchange, routingKey, updateVacationRequest);
+        vacationService.sendMassageToRabbitMq(exchange, routingKey, vacation);
     }
 
 }

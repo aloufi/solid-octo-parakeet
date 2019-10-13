@@ -1,0 +1,1 @@
+include ":Eureka", ":Config-server", ":Zuul", ":Vacation-service"
