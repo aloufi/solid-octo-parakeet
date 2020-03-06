@@ -1,1 +1,11 @@
 <router-outlet></router-outlet>
+<div class="userDetails" *ngIf="userDetails">
+  <h2>{{userDetails.firstName}} {{userDetails.lastName}}</h2>
+  <h3>{{userDetails.createdTimestamp}} {{userDetails.id}}</h3>
+  <h4>{{userDetails.totp}} </h4>
+
+  <p>
+    {{userDetails.email}}
+  </p>
+</div>
+<button (click)="doLogout()"><mat-icon>logout</mat-icon></button>

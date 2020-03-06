@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MaterialModule } from './material.module';
 import {MatCardModule, MatListModule, MatSelectModule, MatTableModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
+import {initializer} from './utils/app-init';
+import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import {HttpClientModule} from '@angular/common/http';
     VacationComponent
   ],
   imports: [
+    KeycloakAngularModule,
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
@@ -31,7 +34,14 @@ import {HttpClientModule} from '@angular/common/http';
     MatTableModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializer,
+      multi: true,
+      deps: [KeycloakService]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
